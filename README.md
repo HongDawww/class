@@ -79,3 +79,20 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 6. 폴더에 Axios 설치
 - yarn add axios
+
+7. emotion core 설치 확인
+- npm ls @emotion/core
+
+7-1 설치 되어 있지 않다면?
+-npm install @emotion/core
+
+8. emotion/styled 설치
+
+- 설치 확인 : npm ls @emotion/styled
+
+8-1. 설치 되어 있지 않다면?
+- npm install @emotion/styled
+
+8-2. yarn을 사용하는 경우
+- yarn add @emotion/styled
+
