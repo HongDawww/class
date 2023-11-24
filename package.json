@@ -10,8 +10,10 @@
   },
   "dependencies": {
     "@apollo/client": "^3.8.7",
+    "@emotion/core": "^0.13.1",
     "@emotion/react": "^11.11.1",
     "@emotion/style": "^0.8.0",
+    "@emotion/styled": "^11.11.0",
     "antd": "^5.11.3",
     "axios": "^1.6.2",
     "graphql": "^16.8.1",
