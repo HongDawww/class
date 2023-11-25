@@ -15,7 +15,6 @@ const 나의그래프큐엘셋팅 = gql`
 	}
 `
 
-
 export default function GraphqlMutationPage() {
 	const [나의함수] = useMutation(나의그래프큐엘셋팅)
 
