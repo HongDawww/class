@@ -1,18 +1,19 @@
 import { useRouter } from "next/router"
 
-export default function SataticRoutingBoardPage(){
+
+export default function StaticRoutingBoardQueryPage(){
 	const router = useRouter()
 	
 	const onClickMove1 = () => {
-		router.push("/section05/static-routing-board-moved/1")
+		router.push("/section05/static-routing-board-query-moved/1")
 	}
 
 	const onClickMove2 = () => {
-		router.push("/section05/static-routing-board-moved/2")
+		router.push("/section05/static-routing-board-query-moved/2")
 	}
 
 	const onClickMove3 = () => {
-		router.push("/section05/static-routing-board-moved/3")
+		router.push("/section05/static-routing-board-query-moved/3")
 	}
 
 	return(

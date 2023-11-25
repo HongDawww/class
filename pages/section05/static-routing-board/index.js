@@ -1,6 +1,6 @@
 import { useRouter } from "next/router"
 
-export default function SataticRoutingBoardPage(){
+export default function StaticRoutingBoardPage(){
 	const router = useRouter()
 	
 	const onClickMove1 = () => {
