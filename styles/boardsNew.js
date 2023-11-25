@@ -35,7 +35,6 @@ export const Writer = styled.input`
   height: 52px;
   padding-left: 16px;
   border: 1px solid #bdbdbd;
-
 `;
 
 export const Password = styled.input`
@@ -169,3 +168,8 @@ export const SubmitButton = styled.button`
   background-color: yellow;
 `;
 
+export const Error = styled.div`
+  padding-top: 10px;
+  font-size: 14px;
+  color: red;
+`;
