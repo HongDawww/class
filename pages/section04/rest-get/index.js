@@ -7,7 +7,8 @@ export default function RestGetPage(){
 		console.log(result) //Promise
 	}
 
-	async function onClickSync(){
+
+	const onClickSync = async () =>{
 		const result = await axios.get("https://koreanjson.com/posts/1")
 		console.log(result) // 제대로된 결과
 		console.log(result.data.title) 
