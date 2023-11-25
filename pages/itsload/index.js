@@ -12,8 +12,8 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-image: url("/img/Logo.png");
-  background-color: rgba(0, 0, 0, 0.55);
+  background-image: url("/img/pizza.png");
+  background-color: rgba(0, 0, 0, 0.3);
   background-blend-mode: multiply;
 `;
 const LogoWrapper = styled.div`
@@ -158,7 +158,7 @@ export default function Quiz01_05() {
     <Container>
       <Wrapper>
         <LogoWrapper>
-          <LogoImg src="/img/Logo.png"></LogoImg>
+          <LogoImg src="/img/logo.png"></LogoImg>
           <LogoTitle>잇츠로드</LogoTitle>
         </LogoWrapper>
         <InputWrapper>
