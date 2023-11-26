@@ -42,10 +42,9 @@ export default function GraphqlMutationPage() {
 			alert(error.message)
 		}
 
-
 	  };
 	  
 	return <button onClick={onClickSubmit}>글등록</button>
 	
-
 }
+
