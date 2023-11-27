@@ -1,8 +1,6 @@
-import BoardWrite from "../../../src/components/units/board/write/BoardWrite.container"
+import BoardWrite from "../../../src/components/units/board/write-test/BoardWrite.container"
 
 export default function GraphqlMutationPage() {
-
-	
 
 	return(
 		<div>
