@@ -20,13 +20,16 @@ export default function MapFruitsPage(){
 		<div>3 산청딸기</div>
 	]
 
-	const bbb = FRUIT.map(el => <div>{el.number}{el.title}</div>)
+	// const bbb = FRUIT.map(el => <div>{el.number}{el.title}</div>)
 
 	return (
 		<div>
 			<div>{aaa}</div>
 			---------------------
-			<div>{bbb}</div>
+			<div>
+				{FRUIT.map(el => <div>{el.number}{el.title}</div>)}
+			</div>
+				
 		</div>
 	)
 }
