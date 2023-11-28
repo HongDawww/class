@@ -30,16 +30,21 @@ export default function BoardWrite(props){
 	  };
 
 	const onClickUpdate = async() => {
+		
+		const myvariables = { number: Number(router.query.number) }
+
+		if(writer) myvariables.writer = writer	
+		if(title) myvariables.title = title	
+		if(contents) myvariables.contents = contents
+	
+
 		//수정하기
 		const result = await updateBoard({
-			variables: {
-				number: Number(router.query.number),
-				writer: writer,
-				title: title,
-				contents: contents
-			}
+			variables: myvariables
+		
 		})
 		console.log(result);
+
 		router.push(`/section09/boards-deep/${result.data.updateBoard.number}`)
 
 	}
