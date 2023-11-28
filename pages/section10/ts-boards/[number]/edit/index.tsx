@@ -1,4 +1,4 @@
-import BoardWrite from "../../../../../src/components/units/board/write-board-deep/BoardWrite.container"
+import BoardWrite from "../../../../../src/components/units/board/tsboards-write/BoardWrite.container"
 import { useQuery, gql } from "@apollo/client"
 import { useRouter } from "next/router"
 
@@ -13,7 +13,7 @@ import { useRouter } from "next/router"
 	}
 `
 
-export default function DynamicRoutingMovedPage(props){
+export default function DynamicRoutingMovedPage(){
 	const router = useRouter();
 
 	const { data } = useQuery(FETCH_BOARD, {

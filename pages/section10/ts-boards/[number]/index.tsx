@@ -12,7 +12,7 @@ const FETCH_BOARD = gql`
 	}
 `
 
-export default function DynamicRoutingMovedPage(props){
+export default function DynamicRoutingMovedPage(){
 	const router = useRouter();
 
 	const { data } = useQuery(FETCH_BOARD, {
@@ -26,7 +26,7 @@ export default function DynamicRoutingMovedPage(props){
 	// console.log(data)
 
 	const onClickMove = () => {
-		router.push(`/section09/boards-deep/${router.query.number}/edit`)
+		router.push(`/section10/ts-boards/${router.query.number}/edit`)
 	}
 
 	return(
