@@ -11,8 +11,7 @@ export default function BoardDetail(){
     const { data } = useQuery<Pick<IQuery, "fetchBoard">, IQueryFetchBoardArgs>(FETCH_BOARD, {
       variables: { boardId: router.query.boardId },
     });
-    
-   
+  
     const onClickMoveToBoardEdit = () => {
       router.push(`/boards/${router.query.boardId}/edit`);
     };
