@@ -4,6 +4,7 @@
 
 ![게시물등록](https://github.com/HongDawww/class/assets/142575028/f38fd2c5-6711-4c84-a4c4-fb0d434bfbd9)
 ![detail](https://github.com/HongDawww/class/assets/142575028/1ceb50c6-3f21-4f37-af73-9ec583fac507)
+![게시물수정](https://github.com/HongDawww/class/assets/142575028/ca497244-65ff-4e03-8d4c-0b6405567ecd)
 
 ## 잇츠로드
 
