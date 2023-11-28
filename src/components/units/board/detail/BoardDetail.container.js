@@ -9,6 +9,15 @@ export default function BoardDetail(){
     const { data } = useQuery(FETCH_BOARD, {
       variables: { boardId: router.query.boardId },
     });
+  
+    const onClickMoveToBoardEdit = () => {
+      router.push(`/boards/${router.query.boardId}/edit`);
+    };
     
-    return <BoardDetailUI data={data} />
+    return (
+      <BoardDetailUI 
+        data={data} 
+        onClickMoveToBoardEdit={onClickMoveToBoardEdit}
+      />
+    )
 }
