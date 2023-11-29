@@ -34,9 +34,7 @@ export default function BoardCommentList(): JSX.Element {
     variables: { boardId: router.query.boardId },
   });
 
-  const onClickDelete = async (
-    event: MouseEvent<HTMLButtonElement>
-  ): Promise<void> => {
+  const onClickDelete = async (): Promise<void> => {
     // const password = prompt("비밀번호를 입력하세요.");
     try {
       await deleteBoardComment({
@@ -58,14 +56,14 @@ export default function BoardCommentList(): JSX.Element {
   };
 
   const onClickOpenDeleteModal = (
-    event: MouseEvent<HTMLImageElement>
+    event: MouseEvent<HTMLImageElement>,
   ): void => {
     setBoardCommentId(event.currentTarget.id);
     setIsOpenDeleteModal(true);
   };
 
   const onChangeDeletePassword = (
-    event: ChangeEvent<HTMLInputElement>
+    event: ChangeEvent<HTMLInputElement>,
   ): void => {
     setPassword(event.target.value);
   };
