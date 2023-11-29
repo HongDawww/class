@@ -23,7 +23,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "src/components/units/board/write-setstate/BoardWrite.container.tsx"  ],
   "exclude": [
     "node_modules"
   ]
