@@ -17,7 +17,7 @@ const FETCH_BOARDS = gql`
   }
 `;
 const FETCH_BOARDS_COUNT = gql`
-  query {
+  query fetchBoardsCount {
     fetchBoardsCount
   }
 `;
@@ -35,6 +35,7 @@ export default function StaticRoutingMovedPage(): JSX.Element {
   >(FETCH_BOARDS_COUNT);
 
   const lastPage = Math.ceil(dataBoardsCount?.fetchBoardsCount ?? 10 / 10);
+  // const lastPage = Math.ceil(dataBoardsCount?.fetchBoardsCount / 10);
 
   // console.log(data);
   // console.log(dataBoardsCount);
