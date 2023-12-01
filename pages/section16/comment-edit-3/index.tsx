@@ -3,7 +3,8 @@ import type {
   IQuery,
   IQueryFetchBoardsArgs,
 } from "../../../src/commons/types/generated/types";
-import { MouseEvent } from "react";
+import CommentItem from "../../../src/components/units/comment-item";
+
 const FETCH_BOARDS = gql`
   query fetchBoards($page: Int) {
     fetchBoards(page: $page) {
@@ -16,41 +17,13 @@ const FETCH_BOARDS = gql`
 `;
 
 export default function StaticRoutingMovedPage(): JSX.Element {
-  const { data, refetch } = useQuery<
-    Pick<IQuery, "fetchBoards">,
-    IQueryFetchBoardsArgs
-  >(FETCH_BOARDS);
-
-  console.log(data?.fetchBoards); // 배열
-
-  const onClickPage = (event: MouseEvent<HTMLSpanElement>): void => {
-    void refetch({ page: Number(event.currentTarget.id) });
-  };
+  const { data } = useQuery<Pick<IQuery, "fetchBoards">, IQueryFetchBoardsArgs>(
+    FETCH_BOARDS,
+  );
 
   return (
     <div>
-      {data?.fetchBoards.map((el) => (
-        <div key={el._id}>
-          <span style={{ margin: "10px" }}>{el.writer}</span>
-          <span style={{ margin: "10px" }}>{el.title}</span>
-        </div>
-      ))}
-
-      {new Array(10).fill(1).map((_, index) => (
-        <span key={index + 1} id={String(index + 1)} onClick={onClickPage}>
-          {index + 1}
-        </span>
-      ))}
-      {/* {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((_, index) => (
-        <span key={index + 1} id={String(index + 1)} onClick={onClickPage}>
-          {index + 1}
-        </span>
-      ))} */}
-      {/* {Array.from({ length: 10 }, (_, index) => (
-        <span key={index + 1} id={String(index + 1)} onClick={onClickPage}>
-          {index + 1}
-        </span>
-      ))} */}
+      {data?.fetchBoards.map((el) => <CommentItem key={el._id} el={el} />)}
     </div>
   );
 }
