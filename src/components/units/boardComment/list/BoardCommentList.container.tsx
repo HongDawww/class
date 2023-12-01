@@ -38,7 +38,7 @@ export default function BoardCommentList(): JSX.Element {
     event: MouseEvent<HTMLButtonElement>,
   ): Promise<void> => {
     // const password = prompt("비밀번호를 입력하세요.");
-    console.log(event.currentTarget);
+    console.log(event);
     try {
       await deleteBoardComment({
         variables: {
