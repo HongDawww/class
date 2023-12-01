@@ -15,6 +15,6 @@
     "isolatedModules": true,
     "jsx": "preserve"
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/section13/modal/index.tsx", "pages/modal/index.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/section13/modal/index.tsx", "pages/modal/index.js", "pages/pagenation/index.tsx", "pages/lastpage/index.tsx"],
   "exclude": ["node_modules"]
 }
