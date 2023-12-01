@@ -7,7 +7,6 @@ interface IApolloSettingProps {
 export default function ApolloSetting(props: IApolloSettingProps): JSX.Element {
   const client = new ApolloClient({
     // 포폴용 주소
-
     uri: "https://backend-practice.codebootcamp.co.kr/graphql",
     // 연습용 주소
     // uri: "http://backend-example.codebootcamp.co.kr/graphql",
