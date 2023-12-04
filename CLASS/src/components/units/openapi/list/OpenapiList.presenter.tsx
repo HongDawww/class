@@ -6,14 +6,13 @@ export default function OpenapiListUI(props: IOpenapiListUIProps): JSX.Element {
   return (
     <Wrapper>
       <div>
-        {props.imgUrls.map((el) => (
+        {props.imgUrls.map((el, index) => (
           <>
             <DogImg key={el} src={el} />
+            {(index + 1) % 3 === 0 && <br />}
           </>
         ))}
       </div>
     </Wrapper>
   );
 }
-
-//   {(index + 1) % 3 === 0 && <br />} -- css로 처리

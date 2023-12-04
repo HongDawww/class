@@ -16,7 +16,7 @@ import { getDate } from "../../../../commons/libraries/utils";
 import BoardCommentWrite from "../write/BoardCommentWrite.container";
 
 export default function BoardCommentListUIItem(
-  props: IBoardCommentListUIItemProps,
+  props: IBoardCommentListUIItemProps
 ): JSX.Element {
   const router = useRouter();
   const [isEdit, setIsEdit] = useState(false);
@@ -33,10 +33,9 @@ export default function BoardCommentListUIItem(
   };
 
   const onClickDelete = async (
-    event: MouseEvent<HTMLButtonElement>,
+    event: MouseEvent<HTMLButtonElement>
   ): Promise<void> => {
     // const password = prompt("비밀번호를 입력하세요.");
-    console.log(event);
     try {
       await deleteBoardComment({
         variables: {
@@ -57,14 +56,13 @@ export default function BoardCommentListUIItem(
   };
 
   const onClickOpenDeleteModal = (
-    event: MouseEvent<HTMLImageElement>,
+    event: MouseEvent<HTMLImageElement>
   ): void => {
     setIsOpenDeleteModal(true);
-    console.log(event);
   };
 
   const onChangeDeletePassword = (
-    event: ChangeEvent<HTMLInputElement>,
+    event: ChangeEvent<HTMLInputElement>
   ): void => {
     setPassword(event.target.value);
   };

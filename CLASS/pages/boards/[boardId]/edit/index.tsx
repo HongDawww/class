@@ -19,6 +19,7 @@ const FETCH_BOARD = gql`
         address
         addressDetail
       }
+      images
     }
   }
 `;
