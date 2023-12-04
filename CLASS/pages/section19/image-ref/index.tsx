@@ -33,14 +33,14 @@ export default function ImageUploadPage(): JSX.Element {
     console.log(result.data?.uploadFile.url);
     setImageUrl(result.data?.uploadFile.url ?? "");
   };
-  const onClickImage = () => {
+  const onClickImage = (): void => {
     //document.getElementById("")?.click();
     fileRef.current?.click();
   };
   return (
     <>
       <div
-        style={{ width: "50px", height: "50px", backgroundColor: "gray" }}
+        style={{ width: "500px", height: "500px", backgroundColor: "gray" }}
         onClick={onClickImage}
       >
         이미지선택
