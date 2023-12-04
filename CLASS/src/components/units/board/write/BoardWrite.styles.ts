@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { Modal, ModalProps } from "antd";
+import { Modal } from "antd";
 import type { ISubmitButtonProps } from "./BoardWrite.types";
 import DaumPostcode from "react-daum-postcode";
 
@@ -182,6 +182,6 @@ export const Error = styled.div`
   color: red;
 `;
 
-export const AddressModal = styled(Modal)<ModalProps>``;
+export const AddressModal = styled(Modal)``;
 
 export const AddressSearchInput = styled(DaumPostcode)``;
