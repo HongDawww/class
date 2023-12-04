@@ -1,6 +1,6 @@
 import { gql, useMutation } from "@apollo/client";
 import type { ChangeEvent } from "react";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import type {
   IMutation,
   IMutationUploadFileArgs,
@@ -14,6 +14,7 @@ const UPLOAD_FILE = gql`
 
 export default function ImageUploadPage(): JSX.Element {
   const [imageUrl, setImageUrl] = useState("");
+  const fileRef = useRef<HTMLInputElement>(null);
   const [uploadFile] = useMutation<
     Pick<IMutation, "uploadFile">,
     IMutationUploadFileArgs
@@ -32,7 +33,10 @@ export default function ImageUploadPage(): JSX.Element {
     console.log(result.data?.uploadFile.url);
     setImageUrl(result.data?.uploadFile.url ?? "");
   };
-  const onClickImage = () => {};
+  const onClickImage = () => {
+    //document.getElementById("")?.click();
+    fileRef.current?.click();
+  };
   return (
     <>
       <div
@@ -41,7 +45,12 @@ export default function ImageUploadPage(): JSX.Element {
       >
         이미지선택
       </div>
-      <input style={{ display: "none" }} type="file" onChange={onChangeFile} />
+      <input
+        style={{ display: "none" }}
+        type="file"
+        onChange={onChangeFile}
+        ref={fileRef}
+      />
       <img src={`https://storage.googleapis.com/${imageUrl}`} />
     </>
   );
