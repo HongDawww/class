@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "apollo-upload-client": "^18.0.1",
+    "chokidar": "^3.5.3",
+    "class": "^0.1.4",
+    "example-package": "^0.0.1"
+  },
+  "devDependencies": {
+    "@types/apollo-upload-client": "^17.0.5"
+  }
+}

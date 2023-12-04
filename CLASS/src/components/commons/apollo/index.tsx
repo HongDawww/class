@@ -1,5 +1,5 @@
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
-
+import {} from "apollo-upload-client";
 interface IApolloSettingProps {
   children: JSX.Element;
 }
