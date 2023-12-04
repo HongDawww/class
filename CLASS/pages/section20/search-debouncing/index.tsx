@@ -29,9 +29,13 @@ export default function StaticRoutingMovedPage(): JSX.Element {
     void refetch({ page: Number(event.currentTarget.id) });
   };
 
+  const getDebounce = _.debounce((value) => {
+    void refetch({ search: value, page: 1 });
+  }, 500);
+
   const onChangeSearch = (event: ChangeEvent<HTMLInputElement>): void => {
     // setSearch(event.currentTarget.value);
-    void refetch({ search: event.currentTarget.value, page: 1 });
+    getDebounce(event.currentTarget.value);
   };
   // const onClickSearch = (): void => {
   //   void refetch({ search: search, page: 1 });
