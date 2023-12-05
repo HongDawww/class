@@ -30,6 +30,8 @@
 
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 
+const GLOBAL_STATE = new InMemoryCache();
+
 interface IApolloSettingProps {
   children: JSX.Element;
 }
@@ -42,7 +44,7 @@ export default function ApolloSetting(props: IApolloSettingProps): JSX.Element {
     // 연습용 주소
     // uri: "http://backend-example.codebootcamp.co.kr/graphql",
     // uri: "http://practice.codebootcamp.co.kr/graphql",
-    cache: new InMemoryCache(), //컴퓨터의 메모리에 백엔드에서 받아온 데이터 임시 저장
+    cache: GLOBAL_STATE, //컴퓨터의 메모리에 백엔드에서 받아온 데이터 임시 저장
   });
 
   // prettier-ignore
