@@ -4,7 +4,7 @@ import type {
   IQuery,
   IQueryFetchBoardsArgs,
 } from "../../../src/commons/types/generated/types";
-import { useEffect } from "react";
+
 const FETCH_BOARDS = gql`
   query fetchBoards($page: Int) {
     fetchBoards(page: $page) {
