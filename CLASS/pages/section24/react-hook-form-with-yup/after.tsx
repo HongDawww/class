@@ -7,9 +7,6 @@ interface IFormData {
   writer: string;
   title: string;
   contents: string;
-  // boardAddress: {
-  //   addressDetail: string;
-  // };
 }
 
 const qqq = yup.object({
@@ -36,8 +33,9 @@ export default function GraphqlMutationPage(): JSX.Element {
       <div style={{ color: "red" }}>{formState.errors.title?.message}</div>
       내용: <input type="text" {...register("contents")} />
       <div style={{ color: "red" }}>{formState.errors.contents?.message}</div>
-      {/* 주소 : <input type="text" {...register("boardAddress.addressDetail")} /> */}
-      <button>GRAPHQL-API 요청하기</button>
+      <button style={{ backgroundColor: formState.isValid ? "yellow" : "" }}>
+        GRAPHQL-API 요청하기
+      </button>
     </form>
   );
 }
