@@ -9,7 +9,7 @@ interface IFormData {
   contents: string;
 }
 
-const qqq = yup.object({
+const schema = yup.object({
   writer: yup.string().required("작성자를 입력해주세요"),
   title: yup.string().required("제목을 입력해주세요"),
   contents: yup.string().required("내용을 입력해주세요"),
@@ -17,7 +17,7 @@ const qqq = yup.object({
 
 export default function GraphqlMutationPage(): JSX.Element {
   const { register, handleSubmit, formState } = useForm<IFormData>({
-    resolver: yupResolver(qqq),
+    resolver: yupResolver(schema),
     mode: "onChange",
   });
 
