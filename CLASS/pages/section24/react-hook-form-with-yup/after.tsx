@@ -1,19 +1,13 @@
 import { useForm } from "react-hook-form";
 import { wrapFormAsync } from "../../../src/commons/libraries/asyncFunc";
 import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
+import { schema } from "./validation";
 
 interface IFormData {
   writer: string;
   title: string;
   contents: string;
 }
-
-const schema = yup.object({
-  writer: yup.string().required("작성자를 입력해주세요"),
-  title: yup.string().required("제목을 입력해주세요"),
-  contents: yup.string().required("내용을 입력해주세요"),
-});
 
 export default function GraphqlMutationPage(): JSX.Element {
   const { register, handleSubmit, formState } = useForm<IFormData>({
