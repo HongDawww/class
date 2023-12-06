@@ -1,74 +1,38 @@
-// import {
-//   ApolloClient,
-//   InMemoryCache,
-//   ApolloProvider,
-//   ApolloLink,
-// } from "@apollo/client";
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider,
+  ApolloLink,
+} from "@apollo/client";
 
-// import { useRecoilState } from "recoil";
-// import { accessTokenState } from "../../../commons/stores";
-// import { createUploadLink } from "apollo-upload-client";
-
-// interface IApolloSettingProps {
-//   children: JSX.Element;
-// }
-
-// const GLOBAL_STATE = new InMemoryCache();
-
-// export default function ApolloSetting(props: IApolloSettingProps): JSX.Element {
-//   const [accessToken, setAccessToken] = useRecoilState(accessTokenState);
-
-//   const result = localStorage.getItem("accessToken");
-
-//   console.log(result);
-//   setAccessToken(result ?? "");
-
-//   const uploadLink = createUploadLink({
-//     uri: "http://backend-practice.codebootcamp.co.kr/graphql",
-//     headers: {
-//       Authoriztion: `Bearer ${accessToken}`,
-//     },
-//   });
-//   const client = new ApolloClient({
-//     // 포폴용 주소
-
-//     uri: "http://backend-practice.codebootcamp.co.kr/graphql",
-//     // 연습용 주소
-//     // uri: "http://backend-example.codebootcamp.co.kr/graphql",
-//     // uri: "http://practice.codebootcamp.co.kr/graphql",
-//     link: ApolloLink.from([uploadLink]),
-//     cache: GLOBAL_STATE, //컴퓨터의 메모리에 백엔드에서 받아온 데이터 임시 저장
-//   });
-
-//   // prettier-ignore
-//   return (
-// 		<ApolloProvider client={client}>
-// 			{props.children}
-// 		</ApolloProvider>
-// 	)
-
-// }
-import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
+import { useRecoilState } from "recoil";
+import { accessTokenState } from "../../../commons/stores";
+import { createUploadLink } from "apollo-upload-client";
 
 interface IApolloSettingProps {
-  children: JSX.Element;
+  children: React.ReactNode;
 }
 
-export default function ApolloSetting(props: IApolloSettingProps): JSX.Element {
-  const client = new ApolloClient({
-    // 포폴용 주소
+const GLOBAL_STATE = new InMemoryCache();
 
-    uri: "https://backend-practice.codebootcamp.co.kr/graphql",
-    // 연습용 주소
-    // uri: "http://backend-example.codebootcamp.co.kr/graphql",
-    // uri: "http://practice.codebootcamp.co.kr/graphql",
-    cache: new InMemoryCache(), //컴퓨터의 메모리에 백엔드에서 받아온 데이터 임시 저장
+export default function ApolloSetting(props: IApolloSettingProps): JSX.Element {
+  const [accessToken, setAccessToken] = useRecoilState(accessTokenState);
+
+  const result = localStorage.getItem("accessToken");
+
+  console.log(result);
+  setAccessToken(result ?? "");
+
+  const uploadLink = createUploadLink({
+    uri: "http://backend-practice.codebootcamp.co.kr/graphql",
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+    },
+  });
+  const client = new ApolloClient({
+    link: ApolloLink.from([uploadLink]),
+    cache: GLOBAL_STATE,
   });
 
-  // prettier-ignore
-  return (
-		<ApolloProvider client={client}>
-			{props.children}
-		</ApolloProvider>
-	)
+  return <ApolloProvider client={client}>{props.children}</ApolloProvider>;
 }

@@ -36,9 +36,9 @@ export default function LoginPage(): JSX.Element {
   };
 
   const onClickLogin = async (): Promise<void> => {
-    const result = localStorage.getItem("accessToken");
-    console.log(result);
-    
+    // const result = localStorage.getItem("accessToken");
+    // console.log(result);
+
     try {
       // 1. 로그인  mutation 날려서 accessToken 받아오기
       const result = await loginUser({
