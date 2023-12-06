@@ -4,6 +4,7 @@ import type {
   IQuery,
   IQueryFetchBoardsArgs,
 } from "../../../src/commons/types/generated/types";
+import { useEffect } from "react";
 const FETCH_BOARDS = gql`
   query fetchBoards($page: Int) {
     fetchBoards(page: $page) {
@@ -39,6 +40,8 @@ export default function StaticRoutingMovedPage(): JSX.Element {
     // 3. 추가된 값으로 변경하기
     localStorage.setItem("baskets", JSON.stringify(baskets));
   };
+
+  // 장바구니에서 가져오기? - useEffect 사용
 
   return (
     <div>
