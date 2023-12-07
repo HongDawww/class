@@ -4,7 +4,7 @@ import {
   IQueryFetchBoardsArgs,
 } from "../../../../commons/types/generated/types";
 
-const FETCH_BOARDS = gql`
+export const FETCH_BOARDS = gql`
   query fetchBoards($page: Int, $search: String) {
     fetchBoards(page: $page, search: $search) {
       _id
@@ -16,9 +16,9 @@ const FETCH_BOARDS = gql`
 `;
 
 export const useQueryFetchBoards = () => {
-  const result = useQuery<Pick<IQuery, "fetchBoards">, IQueryFetchBoardsArgs>(
+  const query = useQuery<Pick<IQuery, "fetchBoards">, IQueryFetchBoardsArgs>(
     FETCH_BOARDS
   );
 
-  return result;
+  return query;
 };

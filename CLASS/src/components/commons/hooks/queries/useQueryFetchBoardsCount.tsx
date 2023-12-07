@@ -4,17 +4,17 @@ import {
   IQueryFetchBoardsCountArgs,
 } from "../../../../commons/types/generated/types";
 
-const FETCH_BOARDS_COUNT = gql`
+export const FETCH_BOARDS_COUNT = gql`
   query fetchBoardsCount($search: String) {
     fetchBoardsCount(search: $search)
   }
 `;
 
 export const useQueryFetchBoardsCount = () => {
-  const result = useQuery<
+  const query = useQuery<
     Pick<IQuery, "fetchBoardsCount">,
     IQueryFetchBoardsCountArgs
   >(FETCH_BOARDS_COUNT);
 
-  return result;
+  return query;
 };

@@ -1,6 +1,6 @@
-import LayoutBanner from "./banner/LayoutBanner.container";
-import LayoutHeader from "./header/LayoutHeader.container";
-import LayoutNavigation from "./navigation/LayoutNavigation.container";
+import LayoutBanner from "./banner/LayoutBanner.index";
+import LayoutHeader from "./header/LayoutHeader.index";
+import LayoutNavigation from "./navigation/LayoutNavigation.index";
 import styled from "@emotion/styled";
 
 const Body = styled.div`
@@ -13,7 +13,7 @@ const Body = styled.div`
 interface ILayoutProps {
   children: JSX.Element;
 }
-export default function Layout(props: ILayoutProps): JSX.Element {
+export default function Layout(props: ILayoutProps) {
   return (
     <>
       <LayoutHeader />

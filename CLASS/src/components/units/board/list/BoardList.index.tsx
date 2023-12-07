@@ -1,66 +1,43 @@
-import { getDate } from "../../../../commons/libraries/utils";
-import { useSearch } from "../../../commons/hooks/customs/useSearch";
+import styled from "@emotion/styled";
+import { usePagination } from "../../../commons/hooks/customs/usePagination";
+import { useSearchbar } from "../../../commons/hooks/customs/useSearchbar";
+import Paginations01 from "../../../commons/paginations/01/Paginations01.index";
+import Searchbars01 from "../../../commons/searchbars/01/Searchbars01.index";
+import BoardListBody from "./body/BoardListBody.index";
+import BoardListFooter from "./footer/BoardListFooter.index";
+import BoardListHeader from "./header/BoardListHeader.index";
 import { useQueryFetchBoards } from "../../../commons/hooks/queries/useQueryFetchBoards";
 import { useQueryFetchBoardsCount } from "../../../commons/hooks/queries/useQueryFetchBoardsCount";
-import { useMoveToPage } from "../../../commons/hooks/ustMoveToPage";
-import Paginations01 from "../../../commons/paginations/01/Paginations01.container";
-import Searchbars01 from "../../../commons/searchbars/01/Searchbars01.container";
-import * as S from "./BoardList.styles";
-import { v4 as uuidv4 } from "uuid";
 
-const SECRET = "@#$%";
+export const Wrapper = styled.div`
+  width: 1200px;
+  margin: 100px;
+`;
 
-export default function BoardListUI(): JSX.Element {
-  const { keyword, onChangeKeyword } = useSearch();
-  const { onClickMoveToPage } = useMoveToPage();
+export default function BoardList() {
   const { data, refetch } = useQueryFetchBoards();
   const { data: dataBoardsCount, refetch: refetchBoardsCount } =
     useQueryFetchBoardsCount();
 
+  const paginationArgs = usePagination({
+    refetch,
+    count: dataBoardsCount?.fetchBoardsCount,
+  });
+
+  const { keyword, onChangeSearchbar } = useSearchbar({
+    refetch,
+    refetchBoardsCount,
+  });
+
   return (
-    <S.Wrapper>
-      <Searchbars01
-        refetch={refetch}
-        refetchBoardsCount={refetchBoardsCount}
-        onChangeKeyword={onChangeKeyword}
-      />
-      <S.TableTop />
-      <S.Row>
-        <S.ColumnHeaderBasic>ID</S.ColumnHeaderBasic>
-        <S.ColumnHeaderTitle>제목</S.ColumnHeaderTitle>
-        <S.ColumnHeaderBasic>작성자</S.ColumnHeaderBasic>
-        <S.ColumnHeaderBasic>날짜</S.ColumnHeaderBasic>
-      </S.Row>
-      {data?.fetchBoards.map((el) => (
-        <S.Row key={el._id}>
-          <S.ColumnBasic>
-            {String(el._id).slice(-4).toUpperCase()}
-          </S.ColumnBasic>
-          <S.ColumnTitle onClick={onClickMoveToPage(`/boards/${el._id}`)}>
-            {el.title
-              .replaceAll(keyword, `${SECRET}${keyword}${SECRET}`)
-              .split(SECRET)
-              .map((el) => (
-                <S.TextToken key={uuidv4()} isMatched={keyword === el}>
-                  {el}
-                </S.TextToken>
-              ))}
-          </S.ColumnTitle>
-          <S.ColumnBasic>{el.writer}</S.ColumnBasic>
-          <S.ColumnBasic>{getDate(el.createdAt)}</S.ColumnBasic>
-        </S.Row>
-      ))}
-      <S.TableBottom />
-      <S.Footer>
-        <Paginations01
-          refetch={refetch}
-          count={dataBoardsCount?.fetchBoardsCount}
-        />
-        <S.Button onClick={onClickMoveToPage("/boards/new")}>
-          <S.PencilIcon src="/images/board/list/write.png" />
-          게시물 등록하기
-        </S.Button>
-      </S.Footer>
-    </S.Wrapper>
+    <Wrapper>
+      <BoardListHeader>
+        <Searchbars01 onChangeSearchbar={onChangeSearchbar} />
+      </BoardListHeader>
+      <BoardListBody data={data} keyword={keyword} />
+      <BoardListFooter>
+        <Paginations01 {...paginationArgs} />
+      </BoardListFooter>
+    </Wrapper>
   );
 }

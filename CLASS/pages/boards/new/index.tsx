@@ -1,5 +1,3 @@
-import BoardWrite from "../../../src/components/units/board/write/BoardWrite.container";
-
-export default function BoardsNewPage(): JSX.Element {
-  return <BoardWrite isEdit={false} />;
+export default function BoardWritePage() {
+  return <div>게시글 등록하기 페이지입니다</div>;
 }
