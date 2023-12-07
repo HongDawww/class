@@ -23,3 +23,9 @@ function getGeneric<Mytype1, Mytype2, Mytype3>(arg1: Mytype1, arg2: Mytype2, arg
   return [arg3, arg2, arg1];
 }
 const resultGeneric = getGeneric<string, number, boolean>("철수", 123, true);
+
+// 4-1. Generic - 화살표 함수
+const getGeneric1 = <T, U, V>(arg1: T, arg2: U, arg3: V): [V, U, T] => {
+  return [arg3, arg2, arg1];
+};
+const resultGeneric1 = getGeneric<string, number, boolean>("철수", 123, true);
