@@ -2,6 +2,7 @@ import { useMoveToPage } from "../../../src/components/commons/hooks/ustMoveToPa
 
 export default function CustomHooksUseAuthPage(): JSX.Element {
   const { onClickMoveToPage } = useMoveToPage();
+
   return (
     <>
       <button onClick={onClickMoveToPage("/boards")}>게시판으로 이동</button>

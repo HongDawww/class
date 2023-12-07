@@ -9,3 +9,8 @@ export const accessTokenState = atom({
   key: "AccessTokenState",
   default: "",
 });
+
+export const visitedPageState = atom({
+  key: "visitedPageState",
+  default: "",
+});
