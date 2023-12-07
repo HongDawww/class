@@ -22,4 +22,4 @@ const resultUnknown = getUnknown("철수", 123, true);
 function getGeneric<Mytype1, Mytype2, Mytype3>(arg1: Mytype1, arg2: Mytype2, arg3: Mytype3): [Mytype3, Mytype2, Mytype1] {
   return [arg3, arg2, arg1];
 }
-const resultGeneric = getGeneric("철수", 123, true);
+const resultGeneric = getGeneric<string, number, boolean>("철수", 123, true);
