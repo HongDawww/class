@@ -67,13 +67,17 @@
 
       // 콜백 지옥
       const myPromise = () => {
-        axios.get(`http://numbersapi.com/random?min=1&max=200`).then((qqq) => {
-          axios.get(`http://numbersapi.com/random?min=1&max=200`).then((qqq) => {
-            axios.get(`http://numbersapi.com/random?min=1&max=200`).then((qqq) => {
-              // qqq가 최종 결과
-            });
+        axios
+          .get(`http://numbersapi.com/random?min=1&max=200`)
+          .then((qqq) => {
+            return axios.get(`http://numbersapi.com/random?min=1&max=200`);
+          })
+          .then((qqq) => {
+            return axios.get(`http://numbersapi.com/random?min=1&max=200`);
+          })
+          .then((qqq) => {
+            // qqq가 최종 결과
           });
-        });
       };
 
       // axios, fetch = promise 지원 하는 기능
