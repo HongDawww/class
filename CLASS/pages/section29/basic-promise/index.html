@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>Basic-Promise</title>
+  </head>
+  <script>
+    // 1. promise를 then으로 받는 방법
+    const onClickThen = () => {
+      new Promise((resolve, reject) => {
+        try {
+          // api 요청
+          setTimeout(() => {
+            const response = "강아지"; // 2초 후에 데이터 받아옴
+            resolve(response); // 성공하면 실행
+          }, 2000);
+        } catch (error) {
+          reject(error.message); // 실패하면 실행
+        }
+      })
+        .then((res) => {
+          console.log(res); // 결과 = 강아지
+        })
+        .catch((err) => {
+          console.log(err); // error.message
+        });
+    };
+
+    // 2. async await 로 받는 방법
+
+    const onClickAwait = async () => {
+      const result = await new Promise((resolve, reject) => {
+        try {
+          // api 요청
+          setTimeout(() => {
+            const response = "강아지"; // 2초 후에 데이터 받아옴
+            resolve(response); // 성공하면 실행
+          }, 2000);
+        } catch (error) {
+          reject(error.message); // 실패하면 실행
+        }
+      });
+      console.log(result); // 결과 : 강아지
+    };
+  </script>
+  <body>
+    <button onclick="">Promise 실행(.then)</button>
+    <button onclick="">Promise 실행(await)</button>
+  </body>
+</html>
