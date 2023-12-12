@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>Axios 만들기</title>
+    <script>
+        const myAxios = {
+          get: (url) => {
+            return new Promise((resolve, reject) => {
+              const qq = new XMLHttpRequest();
+              qq.open("get", url);
+              qq.send();
+              qq.addEventListener("load", (res) => {
+                resolve(res.terget.response);
+              });
+            });
+          },
+        };
+
+        myAxios.get("앤드포인트").then((res) => {
+          console.log(".then 방식", res);
+        });
+
+      const result = await myAxios.get("앤드포인트")
+          console.log("await 방식", result);
+    </script>
+  </head>
+  <body></body>
+</html>
