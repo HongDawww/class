@@ -1,7 +1,7 @@
 import type { FormEvent } from "react";
 
 export const wrapAsync =
-  (asyncFunc: () => Promise<void>) => (event: FormEvent<HTMLFormElement>) => {
+  (asyncFunc: () => Promise<void>) => (event: FormEvent<HTMLButtonElement>) => {
     void asyncFunc();
   };
 
