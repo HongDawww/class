@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@ant-design/icons": "5.0.1",
-    "@apollo/client": "3.7.1",
+    "@apollo/client": "^3.8.8",
     "@apollo/federation": "^0.38.1",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.10.5",
@@ -24,6 +24,7 @@
     "dompurify": "^3.0.6",
     "firebase": "9.10.0",
     "graphql": "^16.6.0",
+    "graphql-request": "^6.1.0",
     "lodash": "^4.17.21",
     "next": "12.1.0",
     "react": "17.0.2",
