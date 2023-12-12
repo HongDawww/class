@@ -66,27 +66,26 @@
       // };
 
       // 콜백 지옥 -> 프로미스 체이닝
-      // const myPromise = () => {
-      //   axios
-      //     .get(`http://numbersapi.com/random?min=1&max=200`)
-      //     .then((qqq) => {
-      //       return axios.get(`http://numbersapi.com/random?min=1&max=200`);
-      //     })
-      //     .then((qqq) => {
-      //       return axios.get(`http://numbersapi.com/random?min=1&max=200`);
-      //     })
-      //     .then((qqq) => {
-      //       // qqq가 최종 결과
-      //     });
-      // };
+      const myPromise = () => {
+        axios
+          .get(`http://numbersapi.com/random?min=1&max=200`)
+          .then((qqq) => {
+            return axios.get(`http://numbersapi.com/random?min=1&max=200`);
+          })
+          .then((qqq) => {
+            return axios.get(`http://numbersapi.com/random?min=1&max=200`);
+          })
+          .then((qqq) => {
+            // qqq가 최종 결과
+          });
+      };
 
-      const myPromise = async () => {
+      // axios, fetch = promise 지원 하는 기능
+      const myAsyncAwait = async () => {
         await axios.get(`http://numbersapi.com/random?min=1&max=200`);
         await axios.get(`http://numbersapi.com/random?min=1&max=200`);
         await axios.get(`http://numbersapi.com/random?min=1&max=200`);
       };
-      // axios, fetch = promise 지원 하는 기능
-      const myAsyncAwait = () => {};
     </script>
   </head>
   <body>
