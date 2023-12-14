@@ -7,8 +7,11 @@ import {
 } from "@apollo/client"; // module 요즘
 import { createUploadLink } from "apollo-upload-client";
 import { useEffect } from "react";
-import { useRecoilState } from "recoil";
-import { accessTokenState } from "../../../commons/stores";
+import { useRecoilState, useRecoilValueLoadable } from "recoil";
+import {
+  accessTokenState,
+  restoreAccessTokenLoadable,
+} from "../../../commons/stores";
 import { onError } from "@apollo/client/link/error";
 import { getAccessToken } from "../../../commons/libraries/getAccessToken";
 // import { GraphQLClient, gql } from "graphql-request";
@@ -21,13 +24,15 @@ interface IApolloSettingProps {
 export default function ApolloSetting(props: IApolloSettingProps) {
   const [accessToken, setAccessToken] = useRecoilState(accessTokenState);
 
+  const aaa = useRecoilValueLoadable(restoreAccessTokenLoadable);
+
   useEffect(() => {
     // 1. 기존 방식
     // const result = localStorage.getItem("accessToken");
 
     // 2. refreshToken 이후 방식
-    void getAccessToken().then((newAccessToken) => {
-      setAccessToken(newAccessToken ?? "");
+    aaa.toPromise().then((newAccessToken) => {
+      void setAccessToken(newAccessToken ?? "");
     });
   }, []);
 
