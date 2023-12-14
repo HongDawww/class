@@ -7,7 +7,8 @@ import {
 } from "@apollo/client"; // module 요즘
 import { createUploadLink } from "apollo-upload-client";
 import { useEffect } from "react";
-import { useRecoilState, useRecoilValueLoadable } from "recoil";
+import { RecoilRoot, useRecoilValueLoadable } from "recoil";
+import { useRecoilState } from "recoil";
 import {
   accessTokenState,
   restoreAccessTokenLoadable,
@@ -21,6 +22,7 @@ const GLOBAL_STATE = new InMemoryCache();
 interface IApolloSettingProps {
   children: JSX.Element;
 }
+
 export default function ApolloSetting(props: IApolloSettingProps) {
   const [accessToken, setAccessToken] = useRecoilState(accessTokenState);
 
@@ -91,8 +93,12 @@ export default function ApolloSetting(props: IApolloSettingProps) {
 
   // prettier-ignore
   return (
-    <ApolloProvider client={client}>
-      {props.children}
-    </ApolloProvider>
-  )
+   
+      <RecoilRoot>
+        <ApolloProvider client={client}>
+          {props.children}
+        </ApolloProvider>
+      </RecoilRoot>
+  
+    )
 }
